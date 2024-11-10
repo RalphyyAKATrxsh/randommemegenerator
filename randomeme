@@ -1,38 +1,54 @@
-import java.util.Random;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Nationality and Verb Generator</h1>
+    <div id="result"></div>
+    <button onclick="generateRandom()">Generate</button>
 
-public class RandomGenerator {
-    private static final String[] NATIONALITIES = {
-        "American", "Canadian", "Mexican", "Brazilian", "British", "French", "German",
-        "Italian", "Spanish", "Chinese", "Japanese", "Korean", "Indian", "Australian",
-        "Russian", "South African", "Egyptian", "Nigerian", "Kenyan", "Argentinian"
-    };
+    <script>
+        const nationalities = [
+            "American", "Canadian", "Mexican", "Brazilian", "British", "French", "German",
+            "Italian", "Spanish", "Chinese", "Japanese", "Korean", "Indian", "Australian",
+            "Russian", "South African", "Egyptian", "Nigerian", "Kenyan", "Argentinian"
+        ];
 
-    private static final String[] VERBS = {
-        "run", "jump", "swim", "dance", "read", "write", "sing", "talk", "laugh", "cry",
-        "eat", "drink", "sleep", "wake", "smile", "frown", "think", "dream", "plan",
-        "build", "create", "destroy", "paint", "draw", "play", "work", "shop", "travel",
-        "drive", "fly", "climb", "walk", "hike", "cook", "bake", "speak", "listen", 
-        "watch", "explore", "teach", "learn", "study", "meditate", "relax", "exercise",
-        "skip", "hop", "jog", "lift", "throw", "catch", "kick", "shoot", "score", 
-        "win", "lose", "cheer", "boo", "whistle", "clap", "hug", "kiss", "shake", 
-        "touch", "feel", "sense", "imagine", "wonder", "ponder", "reflect", "consider",
-        "evaluate", "judge", "choose", "select", "prefer", "decide", "agree", 
-        "disagree", "argue", "debate", "discuss", "share", "borrow", "lend", "give", 
-        "take", "accept", "reject", "receive", "send", "deliver", "pack", "unwrap", 
-        "open", "close", "finish", "begin"
-    };
+        const verbs = [
+            "run", "jump", "swim", "dance", "read", "write", "sing", "talk", "laugh", "cry",
+            "eat", "drink", "sleep", "wake", "smile", "frown", "think", "dream", "plan",
+            "build", "create", "destroy", "paint", "draw", "play", "work", "shop", "travel",
+            "drive", "fly", "climb", "walk", "hike", "cook", "bake", "speak", "listen", 
+            "watch", "explore", "teach", "learn", "study", "meditate", "relax", "exercise",
+            "skip", "hop", "jog", "lift", "throw", "catch", "kick", "shoot", "score", 
+            "win", "lose", "cheer", "boo", "whistle", "clap", "hug", "kiss", "shake", 
+            "touch", "feel", "sense", "imagine", "wonder", "ponder", "reflect", "consider",
+            "evaluate", "judge", "choose", "select", "prefer", "decide", "agree", 
+            "disagree", "argue", "debate", "discuss", "share", "borrow", "lend", "give", 
+            "take", "accept", "reject", "receive", "send", "deliver", "pack", "unwrap", 
+            "open", "close", "finish", "begin"
+        ];
 
-    public static void main(String[] args) {
-        Random random = new Random();
-
-        // Generate random nationality
-        int nationalityIndex = random.nextInt(NATIONALITIES.length);
-        String randomNationality = NATIONALITIES[nationalityIndex];
-        System.out.println("Random Nationality: " + randomNationality);
-
-        // Generate random verb
-        int verbIndex = random.nextInt(VERBS.length);
-        String randomVerb = VERBS[verbIndex];
-        System.out.println("Random Verb: " + randomVerb);
-    }
-}
+        function generateRandom() {
+            const randomNationality = nationalities[Math.floor(Math.random() * nationalities.length)];
+            const randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
+            document.getElementById('result').innerText = `Random Nationality: ${randomNationality}\nRandom Verb: ${randomVerb}`;
+        }
+    </script>
+</body>
+</html>
